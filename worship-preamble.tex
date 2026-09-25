@@ -1,0 +1,121 @@
+%% ============================================================
+%%  Shared preamble for the daily office orders
+%%  (morning, midday, evening, night)
+%%
+%%  Each order file should begin with:
+%%    \documentclass[11pt]{article}
+%%    \input{worship-preamble.tex}
+%%    \begin{document}
+%%    ...
+%%    \end{document}
+%% ============================================================
+
+%% ---------- Page: full letter (8.5 x 11 in) ----------
+\usepackage[paperwidth=8.5in, paperheight=11in,
+            top=0.7in, bottom=0.75in, inner=0.65in, outer=0.6in]{geometry}
+
+%% ---------- Fonts ----------
+\usepackage{fontspec}
+\IfFontExistsTF{EBGaramond-Regular.otf}
+  {\setmainfont{EBGaramond}[
+     Extension=.otf, UprightFont=*-Regular, ItalicFont=*-Italic,
+     BoldFont=*-Bold, BoldItalicFont=*-BoldItalic, Numbers=OldStyle]}
+  {\setmainfont{texgyrepagella}[
+     Extension=.otf, UprightFont=*-regular, ItalicFont=*-italic,
+     BoldFont=*-bold, BoldItalicFont=*-bolditalic, Numbers=OldStyle]}
+
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{needspace}
+
+%% ---------- Colors ----------
+%% rubric and rule are intentionally the same for now;
+%% keep separate names so they can diverge later.
+\definecolor{rubric}{RGB}{158,27,32}
+\definecolor{rule}{RGB}{158,27,32}
+
+%% ---------- Paragraph setup ----------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.08}
+\raggedright
+
+%% ---------- Running head / foot ----------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\small\color{rubric}\thepage}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\color{rubric}\thepage}}
+
+%% ============================================================
+%%  Liturgical macros
+%% ============================================================
+
+% Title block
+\newcommand{\OrderTitle}[1]{%
+  \begin{center}
+    {\LARGE\scshape\addfontfeatures{LetterSpace=6}#1\par}
+    \vspace{4pt}
+    {\color{rule}\rule{0.35\linewidth}{0.6pt}\par}
+  \end{center}}
+\newcommand{\OrderSubtitle}[1]{%
+  \begin{center}\vspace{-6pt}{\itshape #1\par}\end{center}\vspace{6pt}}
+
+% Act of worship heading
+\newcommand{\Act}[1]{%
+  \par\needspace{4\baselineskip}\vspace{12pt}%
+  {\scshape\addfontfeatures{LetterSpace=4}\lowercase{#1}\par}%
+  \vspace{3pt}}
+
+% Rubric: red italic direction
+\newcommand{\Rubric}[1]{%
+  {\color{rubric}\itshape #1\par}\vspace{4pt}}
+
+% Inline rubric (no paragraph break)
+\newcommand{\rub}[1]{{\color{rubric}\itshape #1}}
+
+% Speaker lines: leader in roman, people in bold
+% NOTE: \L overwrites the standard LaTeX Ł character command.
+%       Acceptable here since the office texts never need Ł.
+\renewcommand{\L}[1]{\par\hspace{\psalmindent}#1\par\vspace{2pt}\setlength{\psalmindent}{0pt}}
+% \P is defined by textcomp (loaded via fontspec) as the pilcrow ¶.
+% We repurpose it for the "People" speaker line.
+\renewcommand{\P}[1]{\par\hspace{\psalmindent}\textbf{#1}\par\vspace{2pt}\setlength{\psalmindent}{0pt}}
+
+% Litany environment
+\newenvironment{Litany}{\par\vspace{2pt}}{\par\vspace{4pt}}
+
+% Psalm: indented verses, optional response
+\newenvironment{Psalm}[1]{%
+  \par\vspace{2pt}{\itshape #1\par}\vspace{3pt}%
+  \begin{list}{}{\leftmargin=1.2em\itemindent=-1.2em
+                 \itemsep=3pt\parsep=0pt\topsep=0pt
+                 \parindent=1.2em}}
+  {\end{list}\vspace{4pt}}
+\newlength{\psalmindent}
+\newcommand{\V}[1]{\item\hspace{\psalmindent}#1\setlength{\psalmindent}{0pt}}
+\newcommand{\Resp}[1]{\item\textbf{#1}}
+
+% Verse half-line marker
+\newcommand{\pt}{\ {\color{rubric}*}\ }
+
+% Indent the start of a line (use at the beginning of a source line)
+\newcommand{\Indent}{\setlength{\psalmindent}{1.2em}}
+
+% Hymn announcement
+% Grouped so \hangindent/\hangafter don't leak into following text.
+\newcommand{\Hymn}[4]{%
+  {\hangindent=1.2em\hangafter=1
+  \textit{#1}\hfill{\small\scshape #2}\par
+  {\small\color{rubric}#3\hfill #4\par}}\vspace{4pt}}
+
+% Silence
+\newcommand{\Silence}{%
+  \par\vspace{2pt}\begin{center}\rub{Silence}\end{center}\vspace{-2pt}}
+
+% Amen in bold
+\newcommand{\Amen}{\P{Amen.}}
+
+% Scripture citation line
+\newcommand{\Reading}[1]{{\itshape #1\par}\vspace{3pt}}
