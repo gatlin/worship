@@ -117,6 +117,27 @@ def wrap_html(body: str, title: str = "Worship") -> str:
 </head>
 <body>
 {body}
+<script>
+document.documentElement.classList.add('js');
+(function() {{
+  var blocks = document.body.children;
+  for (var i = 0; i < blocks.length; i++) {{
+    blocks[i].classList.add('fade-block');
+  }}
+  var observer = new IntersectionObserver(function(entries) {{
+    entries.forEach(function(entry) {{
+      if (entry.isIntersecting) {{
+        entry.target.classList.add('visible');
+      }} else {{
+        entry.target.classList.remove('visible');
+      }}
+    }});
+  }}, {{ threshold: 0.1, rootMargin: '0px 0px -5% 0px' }});
+  for (var i = 0; i < blocks.length; i++) {{
+    observer.observe(blocks[i]);
+  }}
+}})();
+</script>
 </body>
 </html>
 '''

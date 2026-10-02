@@ -136,3 +136,23 @@ p {
 .half-line {
   color: #888;
 }
+
+/* --- Scroll fade-in/out --- */
+html.js .fade-block {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+html.js .fade-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .fade-block {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
