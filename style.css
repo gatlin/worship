@@ -66,14 +66,25 @@ p {
 }
 
 .hymn {
-  font-style: italic;
-  color: #444;
   margin: 0.75rem 0;
 }
 
-.hymn .ref {
-  font-style: normal;
+.hymn-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+}
+
+.hymn-line .ref {
   font-size: 0.9rem;
+  font-variant: small-caps;
+  white-space: nowrap;
+}
+
+.hymn-line .hymn-note {
+  font-size: 0.9rem;
+  color: var(--rubric);
 }
 
 .silence {

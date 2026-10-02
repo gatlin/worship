@@ -56,10 +56,20 @@ def convert(body: str) -> str:
     body = body.replace('\\pt', '<span class="half-line">*</span>')
 
     # --- Hymn (4 args) ---
+    def _hymn_repl(m: re.Match) -> str:
+        title, ref, note, info = m.group(1), m.group(2), m.group(3), m.group(4)
+        line1 = f'<div class="hymn-line"><em>{title}</em><span class="ref">{ref}</span></div>'
+        if note or info:
+            line2 = (f'<div class="hymn-line">'
+                     f'<span class="hymn-note">{note}</span>'
+                     f'<span class="hymn-note">{info}</span></div>')
+        else:
+            line2 = ''
+        return f'<div class="hymn">{line1}{line2}</div>'
+
     body = re.sub(
         r'\\Hymn\{([^}]*)\}\{([^}]*)\}\{([^}]*)\}\{([^}]*)\}',
-        r'<p class="hymn"><em>\1</em> <span class="ref">\2</span> '
-        r'<span class="verse-num">\3</span> <span class="info">\4</span></p>',
+        _hymn_repl,
         body,
     )
 
