@@ -2,7 +2,7 @@
 PROJ      = worship
 BUILD     = ./build
 
-.PHONY: all clean burn timing
+.PHONY: all clean burn timing html clean-html
 
 # COLORS
 GREEN  := $(shell tput -Txterm setaf 2)
@@ -21,6 +21,17 @@ all morning.tex midday.tex evening.tex night.tex worship-preamble.tex:
 ## Clean up build artifacts.
 clean:
 	rm -rf $(BUILD)
+
+## Build HTML versions of all four services.
+html:
+	python3 tex2html.py morning.tex
+	python3 tex2html.py midday.tex
+	python3 tex2html.py evening.tex
+	python3 tex2html.py night.tex
+
+## Remove generated HTML files.
+clean-html:
+	rm -f morning.html midday.html evening.html night.html
 
 ## Print help message.
 help:

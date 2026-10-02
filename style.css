@@ -1,0 +1,120 @@
+/* Worship service stylesheet */
+
+:root {
+  --rubric: #9E1B20;
+  --text: #1a1a1a;
+  --bg: #fdfdfc;
+  --measure: 42em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  text-align: center;
+  margin: 2rem 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  margin: 2.5rem 0 0.75rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25rem;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+.subtitle {
+  text-align: center;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.rubric {
+  color: var(--rubric);
+  font-size: 0.95rem;
+}
+
+.rubric-inline {
+  color: var(--rubric);
+}
+
+.leader {
+  margin: 0.4rem 0;
+}
+
+.people {
+  margin: 0.4rem 0 0.4rem 1.5rem;
+}
+
+.hymn {
+  font-style: italic;
+  color: #444;
+  margin: 0.75rem 0;
+}
+
+.hymn .ref {
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.silence {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin: 1rem 0;
+}
+
+.reading {
+  font-style: italic;
+}
+
+.verse {
+  margin: 0.3rem 0;
+}
+
+.response {
+  margin: 0.3rem 0 0.3rem 1.5rem;
+}
+
+.litany {
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+}
+
+.psalm {
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+}
+
+.psalm-ref {
+  font-style: italic;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.indent {
+  margin-left: 1.5rem;
+}
+
+.half-line {
+  color: #888;
+}
