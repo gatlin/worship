@@ -17,6 +17,12 @@ def extract_body(tex: str) -> str:
 def convert(body: str) -> str:
     """Apply all macro substitutions and return HTML body."""
 
+    # --- Strip LaTeX comment lines (lines whose first non-ws char is %) ---
+    body = '\n'.join(
+        line for line in body.split('\n')
+        if not line.lstrip().startswith('%')
+    )
+
     # --- Environments (wrap content) ---
     body = re.sub(
         r'\\begin\{Litany\}(.*?)\\end\{Litany\}',
