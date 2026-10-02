@@ -1,8 +1,9 @@
 # Project setup
 PROJ      = worship
 BUILD     = ./build
+DOCS      = ./docs
 
-.PHONY: all clean burn timing html clean-html
+.PHONY: all clean burn timing html clean-html docs
 
 # COLORS
 GREEN  := $(shell tput -Txterm setaf 2)
