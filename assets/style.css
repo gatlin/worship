@@ -1,0 +1,158 @@
+/* Worship service stylesheet */
+
+:root {
+  --rubric: #9E1B20;
+  --text: #1a1a1a;
+  --bg: #F8F4EC;
+  --measure: 42em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  text-align: center;
+  margin: 2rem 0 0.5rem;
+}
+
+.title-rule {
+  width: 35%;
+  height: 1px;
+  background: var(--rubric);
+  margin: 0.25rem auto 0.5rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  margin: 2.5rem 0 0.75rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25rem;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+.subtitle {
+  text-align: center;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.rubric {
+  color: var(--rubric);
+  font-size: 0.95rem;
+}
+
+.rubric-inline {
+  color: var(--rubric);
+}
+
+.leader {
+  margin: 0.4rem 0;
+}
+
+.people {
+  margin: 0.4rem 0 0.4rem 1.5rem;
+}
+
+.hymn {
+  margin: 0.75rem 0;
+}
+
+.hymn-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+}
+
+.hymn-line .ref {
+  font-size: 0.9rem;
+  font-variant: small-caps;
+  white-space: nowrap;
+}
+
+.hymn-line .hymn-note {
+  font-size: 0.9rem;
+  color: var(--rubric);
+}
+
+.silence {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin: 1rem 0;
+}
+
+.reading {
+  font-style: italic;
+}
+
+.verse {
+  margin: 0.3rem 0;
+}
+
+.response {
+  margin: 0.3rem 0 0.3rem 1.5rem;
+}
+
+.litany {
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+}
+
+.psalm {
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+}
+
+.psalm-ref {
+  font-style: italic;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.indent {
+  margin-left: 1.5rem;
+}
+
+.half-line {
+  color: #888;
+}
+
+/* --- Scroll fade-in/out --- */
+html.js .fade-block {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+html.js .fade-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .fade-block {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

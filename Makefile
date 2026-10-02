@@ -24,14 +24,16 @@ clean:
 
 ## Build HTML versions of all four services.
 html:
-	python3 tex2html.py morning.tex
-	python3 tex2html.py midday.tex
-	python3 tex2html.py evening.tex
-	python3 tex2html.py night.tex
+	mkdir -p $(BUILD)
+	cp assets/style.css $(BUILD)/style.css
+	python3 tex2html.py morning.tex $(BUILD)/morning.html
+	python3 tex2html.py midday.tex $(BUILD)/midday.html
+	python3 tex2html.py evening.tex $(BUILD)/evening.html
+	python3 tex2html.py night.tex $(BUILD)/night.html
 
 ## Remove generated HTML files.
 clean-html:
-	rm -f morning.html midday.html evening.html night.html
+	rm -f $(BUILD)/morning.html $(BUILD)/midday.html $(BUILD)/evening.html $(BUILD)/night.html $(BUILD)/style.css
 
 ## Print help message.
 help:
