@@ -78,6 +78,9 @@ def convert(body: str) -> str:
     body = re.sub(r'\\textbf\{([^}]*)\}', r'<strong>\1</strong>', body)
     body = re.sub(r'\\emph\{([^}]*)\}', r'<em>\1</em>', body)
 
+    # --- Dashes: -- → em-dash ---
+    body = body.replace('--', '\u2014')
+
     # --- Resolve \Indent sentinels: add class="indent" to next block element ---
     lines = body.split('\n')
     result: list[str] = []
