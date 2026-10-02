@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning Praise and Prayer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Morning Praise and Prayer</h1>
+<div class="title-rule"></div>
+<p class="subtitle">for general lay use</p>
+
+<p class="rubric">A candle may be lighted as the service begins.
+The people may stand or sit as they are able.</p>
+
+<h2>Call to Praise and Prayer</h2>
+
+<p class="reading"><em>Psalm 51:15 (NRSVue)</em></p>
+
+<div class="litany">
+<p class="leader">O Lord, open my lips,</p>
+<p class="people"><strong>and my mouth will declare your praise.</strong></p>
+</div>
+
+<h2>Morning Hymn</h2>
+
+<div class="hymn"><div class="hymn-line"><em>For a New Day</em><span class="ref">UMH 676</span></div><div class="hymn-line"><span class="hymn-note">Eastern Orthodox Prayer</span><span class="hymn-note"></span></div></div>
+
+<h2>Prayer of Thanksgiving</h2>
+
+<p class="leader">New every morning is your love, great God of light, and all day long you are
+working for good in the world.</p>
+<p class="leader">Stir up in us desire</p>
+<p class="indent leader">to serve you,</p>
+<p class="indent leader">to live peacefully with our neighbors, and</p>
+<p class="indent leader">to devote each day to your Son,</p>
+<p class="leader">our Savior, Jesus Christ the Lord.</p>
+<p class="people"><strong>Amen.</strong></p>
+
+<h2>Scripture</h2>
+
+<p class="reading"><em>Revised Common Lectionary Daily Reading</em></p>
+
+<p class="silence"><em>Silence</em></p>
+
+<p class="rubric">A brief time of reflection and introspection.</p>
+
+<h2>Song of Praise</h2>
+
+<div class="hymn"><div class="hymn-line"><em>Canticle of God's Glory</em><span class="ref">UMH 83</span></div></div>
+
+<h2>Prayers of the People</h2>
+
+<p class="reading"><em>The appropriate morning selection and prayer of petition from the
+Methodist Book of Daily Prayer</em></p>
+
+<p class="people"><strong>Amen.</strong></p>
+
+<h2>The Lord's Prayer</h2>
+
+<div class="hymn"><div class="hymn-line"><em>From the Ritual of the Former Methodist Church</em><span class="ref">UMH 895</span></div></div>
+<script>
+document.documentElement.classList.add('js');
+(function() {
+  var blocks = document.body.children;
+  for (var i = 0; i < blocks.length; i++) {
+    blocks[i].classList.add('fade-block');
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  for (var i = 0; i < blocks.length; i++) {
+    observer.observe(blocks[i]);
+  }
+})();
+</script>
+</body>
+</html>

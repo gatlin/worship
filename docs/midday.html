@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midday Praise and Prayer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Midday Praise and Prayer</h1>
+<div class="title-rule"></div>
+<p class="subtitle">for general lay use</p>
+
+<p class="rubric">The people may stand or sit as they are able.</p>
+
+<h2>Call to Praise and Prayer</h2>
+
+<div class="psalm"><p class="psalm-ref">Isaiah 40:30—31 (NRSVue)</p>
+<p class="verse">Even youths will faint and be weary,  and the young will fall exhausted,</p>
+<p class="verse">but those who wait for the Lord shall renew their strength;</p>
+<p class="indent verse">they shall mount up with wings like eagles,</p>
+<p class="indent verse">they shall run and not be weary,</p>
+<p class="indent verse">they shall walk and not faint.</p>
+</div>
+
+<h2>Prayer of Thanksgiving</h2>
+
+<p class="leader">God of mercy, this midday moment of rest is your welcome gift.</p>
+<p class="leader">Bless the work we have begun,</p>
+<p class="indent leader">make good its defects,</p>
+<p class="indent leader">and let us finish it in
+a way that pleases you.</p>
+<p class="leader">Grant this through Christ our Lord.</p>
+<p class="people"><strong>Amen.</strong></p>
+
+<h2>Song of Praise</h2>
+
+<div class="hymn"><div class="hymn-line"><em>Canticle of Thanksgiving</em><span class="ref">UMH 74</span></div></div>
+
+<h2>Prayers of the People</h2>
+
+<p class="reading"><em>The daily devotional from The Upper Room</em></p>
+
+<h2>The Lord's Prayer</h2>
+
+<p class="reading"><em>Matthew 6:9b—13 (NET)</em></p>
+
+<p class="people"><strong>Our Father in heaven, may your name be honored,</strong></p>
+<p class="people"><strong>may your kingdom come,</strong></p>
+<p class="people"><strong>may your will be done on earth as it is in heaven.</strong></p>
+<p class="people"><strong>Give us today our daily bread,</strong></p>
+<p class="people"><strong>and forgive us our debts, as we ourselves</strong></p>
+<p class="indent people"><strong>have forgiven our debtors.</strong></p>
+<p class="people"><strong>And do not lead us into temptation, but</strong></p>
+<p class="indent people"><strong>deliver us from the evil one.</strong></p>
+
+<p class="people"><strong>Amen.</strong></p>
+<script>
+document.documentElement.classList.add('js');
+(function() {
+  var blocks = document.body.children;
+  for (var i = 0; i < blocks.length; i++) {
+    blocks[i].classList.add('fade-block');
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  for (var i = 0; i < blocks.length; i++) {
+    observer.observe(blocks[i]);
+  }
+})();
+</script>
+</body>
+</html>

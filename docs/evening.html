@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evening Praise and Prayer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Evening Praise and Prayer</h1>
+<div class="title-rule"></div>
+<p class="subtitle">for general lay use</p>
+
+<p class="rubric">A candle may be lighted as the service begins.
+The people may stand or sit as they are able.</p>
+
+<h2>Proclamation of the Light</h2>
+
+<div class="litany">
+<p class="leader">Light and peace in Jesus Christ.</p>
+<p class="people"><strong>Thanks be to God.</strong></p>
+</div>
+
+<h2>Evening Hymn</h2>
+
+<div class="hymn"><div class="hymn-line"><em>At the Close of Day</em><span class="ref">UMH 689</span></div></div>
+
+<h2>Prayer of Thanksgiving</h2>
+
+<p class="leader">We praise and thank you, O God, for you are without beginning and without
+end.</p>
+<p class="indent leader">Through Christ, you created the whole world;</p>
+<p class="indent leader">through Christ, you preserve it.</p>
+<p class="leader">You made the day for the works of light and the night for the refreshment of
+our minds and bodies.</p>
+<p class="leader">Keep us now in Christ; grant us</p>
+<p class="indent leader">a peaceful evening,</p>
+<p class="indent leader">a night free from sin, and</p>
+<p class="indent leader">bring us at last to eternal life.</p>
+<p class="leader">Through Christ and in the Holy Spirit, we offer you all glory, honor, and
+worship, now and for ever.</p>
+<p class="people"><strong>Amen.</strong></p>
+
+<h2>Scripture</h2>
+
+<p class="reading"><em>Revised Common Lectionary Daily Reading</em></p>
+
+<p class="silence"><em>Silence</em></p>
+<p class="rubric">This is an opportunity to reassess the morning reading.</p>
+
+<h2>Song of Praise</h2>
+
+<div class="hymn"><div class="hymn-line"><em>Canticle of Light and Darkness</em><span class="ref">UMH 205</span></div></div>
+
+<h2>Prayers of the People</h2>
+
+<p class="reading"><em>The appropriate evening selection and prayer of gratitude from the Methodist
+Book of Daily Prayer</em></p>
+
+<p class="people"><strong>Amen.</strong></p>
+
+<h2>The Lord's Prayer</h2>
+
+<div class="hymn"><div class="hymn-line"><em>Ecumenical Text</em><span class="ref">UMH 894</span></div></div>
+<script>
+document.documentElement.classList.add('js');
+(function() {
+  var blocks = document.body.children;
+  for (var i = 0; i < blocks.length; i++) {
+    blocks[i].classList.add('fade-block');
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  for (var i = 0; i < blocks.length; i++) {
+    observer.observe(blocks[i]);
+  }
+})();
+</script>
+</body>
+</html>

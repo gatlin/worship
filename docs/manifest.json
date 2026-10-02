@@ -1,0 +1,17 @@
+{
+  "name": "Daily Praise and Prayer",
+  "short_name": "Prayer",
+  "description": "Morning, Midday, Evening, and Night offices for daily use.",
+  "start_url": "./morning.html",
+  "display": "standalone",
+  "background_color": "#F8F4EC",
+  "theme_color": "#9E1B20",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

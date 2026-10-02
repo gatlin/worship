@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Night Praise and Prayer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Night Praise and Prayer</h1>
+<div class="title-rule"></div>
+<p class="subtitle">for general lay use</p>
+
+<p class="rubric">A candle may be lighted as the service begins.
+The people may stand or sit as they are able.</p>
+
+<h2>Call to Praise and Prayer</h2>
+
+<div class="litany">
+<p class="leader">O God, come to our assistance.</p>
+<p class="people"><strong>O Lord, hasten to help us.</strong></p>
+<p class="leader">The Lord Almighty grant us a restful night and peace at the last.</p>
+<p class="people"><strong>Amen.</strong></p>
+</div>
+
+<h2>Night Hymn</h2>
+
+<div class="hymn"><div class="hymn-line"><em>For a Peaceful Night</em><span class="ref">UMH 693</span></div></div>
+
+<h2>Prayer</h2>
+
+<div class="hymn"><div class="hymn-line"><em>Confession</em><span class="ref">UMH 890</span></div></div>
+
+<p class="silence"><em>Silence</em></p>
+
+<h2>Song of Praise</h2>
+
+<div class="hymn"><div class="hymn-line"><em>Psalm 104:1—13, 24—35</em><span class="ref">UMH 826</span></div></div>
+
+<h2>Prayer of Thanksgiving</h2>
+
+<div class="litany">
+<p class="leader">As you have made this day, O God, you also make the night.</p>
+<p class="leader">Give light for our comfort.</p>
+  <p class="leader">Come upon us with quietness and still our souls that we may</p>
+<p class="indent leader">listen for the
+  whisper of your Spirit and</p>
+<p class="indent leader">be attentive to your nearness in our dreams.</p>
+<p class="leader">Empower us to rise again in new life to proclaim your praise, and show
+  Christ to the world.</p>
+<p class="people"><strong>Amen.</strong></p>
+</div>
+
+<h2>The Lord's Prayer</h2>
+
+<div class="hymn"><div class="hymn-line"><em>From the Ritual of the Former Evangelical United Brethren Church</em><span class="ref">UMH
+896</span></div></div>
+
+<h2>Closing Hymn</h2>
+
+<div class="hymn"><div class="hymn-line"><em>Song of Simeon</em><span class="ref">UMH 225</span></div></div>
+<script>
+document.documentElement.classList.add('js');
+(function() {
+  var blocks = document.body.children;
+  for (var i = 0; i < blocks.length; i++) {
+    blocks[i].classList.add('fade-block');
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  for (var i = 0; i < blocks.length; i++) {
+    observer.observe(blocks[i]);
+  }
+})();
+</script>
+</body>
+</html>
