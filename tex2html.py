@@ -39,7 +39,7 @@ def convert(body: str) -> str:
     body = body.replace('\\Indent', '\x00INDENT\x00')
 
     # --- Single-argument macros ---
-    body = re.sub(r'\\OrderTitle\{([^}]*)\}', r'<h1>\1</h1>', body)
+    body = re.sub(r'\\OrderTitle\{([^}]*)\}', r'<h1>\1</h1>\n<div class="title-rule"></div>', body)
     body = re.sub(r'\\OrderSubtitle\{([^}]*)\}', r'<p class="subtitle">\1</p>', body)
     body = re.sub(r'\\Rubric\{([^}]*)\}', r'<p class="rubric">\1</p>', body)
     body = re.sub(r'\\Act\{([^}]*)\}', r'<h2>\1</h2>', body)
