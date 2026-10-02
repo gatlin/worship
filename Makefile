@@ -27,14 +27,26 @@ clean:
 html:
 	mkdir -p $(BUILD)
 	cp assets/style.css $(BUILD)/style.css
+	cp assets/manifest.json $(BUILD)/manifest.json
+	cp assets/sw.js $(BUILD)/sw.js
+	cp assets/icon.svg $(BUILD)/icon.svg
 	python3 tex2html.py morning.tex $(BUILD)/morning.html
 	python3 tex2html.py midday.tex $(BUILD)/midday.html
 	python3 tex2html.py evening.tex $(BUILD)/evening.html
 	python3 tex2html.py night.tex $(BUILD)/night.html
 
+## Copy built HTML into docs/ for GitHub Pages deployment.
+docs: html
+	mkdir -p $(DOCS)
+	cp $(BUILD)/morning.html $(BUILD)/midday.html $(BUILD)/evening.html $(BUILD)/night.html $(DOCS)/
+	cp $(BUILD)/style.css $(BUILD)/manifest.json $(BUILD)/sw.js $(BUILD)/icon.svg $(DOCS)/
+
 ## Remove generated HTML files.
 clean-html:
 	rm -f $(BUILD)/morning.html $(BUILD)/midday.html $(BUILD)/evening.html $(BUILD)/night.html $(BUILD)/style.css
+	rm -f $(BUILD)/manifest.json $(BUILD)/sw.js $(BUILD)/icon.svg
+	rm -f $(DOCS)/morning.html $(DOCS)/midday.html $(DOCS)/evening.html $(DOCS)/night.html
+	rm -f $(DOCS)/style.css $(DOCS)/manifest.json $(DOCS)/sw.js $(DOCS)/icon.svg
 
 ## Print help message.
 help:
