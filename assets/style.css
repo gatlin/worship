@@ -141,6 +141,30 @@ p {
   color: #888;
 }
 
+.index-links {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.index-links a {
+  display: block;
+  font-size: 1.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.index-links a:first-child {
+  border-top: 1px solid #ddd;
+}
+
+.index-links a:active {
+  color: var(--rubric);
+}
+
 /* --- Scroll fade-in/out --- */
 html.js .fade-block {
   opacity: 0;

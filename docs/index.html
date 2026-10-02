@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Orders of Worship</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#9E1B20">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Prayer">
+</head>
+<body>
+<h1>Daily Orders of Worship</h1>
+<div class="title-rule"></div>
+<p class="subtitle">based on the United Methodist Book of Worship</p>
+
+<nav class="index-links">
+  <a href="morning.html">Morning Praise and Prayer</a>
+  <a href="midday.html">Midday Praise and Prayer</a>
+  <a href="evening.html">Evening Praise and Prayer</a>
+  <a href="night.html">Night Praise and Prayer</a>
+</nav>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+</script>
+</body>
+</html>
