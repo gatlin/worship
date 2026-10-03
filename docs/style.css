@@ -25,6 +25,8 @@ body {
 h1 {
   font-size: 1.8rem;
   font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
   text-align: center;
   margin: 2rem 0 0.5rem;
 }
@@ -39,6 +41,8 @@ h1 {
 h2 {
   font-size: 1.3rem;
   font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
   margin: 2.5rem 0 0.75rem;
   border-bottom: 1px solid #ccc;
   padding-bottom: 0.25rem;
@@ -135,6 +139,30 @@ p {
 
 .half-line {
   color: #888;
+}
+
+.index-links {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.index-links a {
+  display: block;
+  font-size: 1.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.index-links a:first-child {
+  border-top: 1px solid #ddd;
+}
+
+.index-links a:active {
+  color: var(--rubric);
 }
 
 /* --- Scroll fade-in/out --- */

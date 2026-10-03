@@ -1,5 +1,6 @@
 const CACHE_NAME = 'worship-v1';
 const ASSETS = [
+  './index.html',
   './morning.html',
   './midday.html',
   './evening.html',
