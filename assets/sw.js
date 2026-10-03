@@ -1,11 +1,12 @@
-const CACHE_NAME = 'worship-v1';
+const CACHE_NAME = 'worship-v2';
 const ASSETS = [
   './index.html',
   './morning.html',
   './midday.html',
   './evening.html',
   './night.html',
-  './style.css'
+  './style.css',
+  './abcjs-basic-min.js'
 ];
 
 self.addEventListener('install', (event) => {

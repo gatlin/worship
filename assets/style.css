@@ -165,6 +165,45 @@ p {
   color: var(--rubric);
 }
 
+/* --- Music notation (\Melody → ABC.js) --- */
+
+.melody {
+  margin: 1rem 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid #d8d2c6;
+  border-bottom: 1px solid #d8d2c6;
+}
+
+/* ABC source: always present in the DOM (offline fallback + hand-reading).
+   Visible by default so a failed render never leaves a blank block;
+   hidden once .melody gains class="rendered" (set by the render script). */
+.melody .melody-abc {
+  font-family: inherit;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  color: #888;
+  background: #f4f0e8;
+  padding: 0.5rem;
+  border: 1px solid #e0d9cc;
+  margin: 0;
+}
+
+/* ABC.js injects a <div class="abcjs"> with an <svg>.  Hidden until the
+   render script has actually filled it, so the source is the default. */
+.melody .abcjs { display: none; }
+.melody.rendered  .abcjs      { display: block; }
+.melody.rendered  .melody-abc { display: none;  }
+
+.melody .abcjs {
+  overflow-x: auto;           /* keep very wide staves scrollable on narrow screens */
+  -webkit-overflow-scrolling: touch;
+}
+
+.melody .abcjs svg {
+  min-width: 500px;
+  height: auto;
+}
+
 /* --- Scroll fade-in/out --- */
 html.js .fade-block {
   opacity: 0;

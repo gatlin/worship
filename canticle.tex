@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+\input{worship-preamble.tex}
+
+%% =====================================================================
+%%  CANTICLE template  —  music, then call-and-response text.
+%%
+%%  A canticle in the UMH is a sung psalm/ode: it carries real staff
+%%  notation (rendered here by ABC.js in the browser) plus leader/people
+%%  or refrains. Build one by composing the primitives you already have:
+%%    \Hymn    title + tune + UMH page
+%%    \Melody  staff notation (new — ABC.js renders it in the browser)
+%%    \L / \P  leader / people   (or a full Litany / Psalm environment)
+%%
+%%  To add a new canticle, copy this page, rename it, and replace the
+%%  bracketed text + the TEST melody below with the real tune.
+%%
+%%  NOTE on the \Melody body: this is ABC notation, one or more "parts"
+%%  separated by |...|| at the end.  Keep it on its own line(s); the
+%%  braces in this file match, so it is safe to wrap across lines.
+%%
+%%  Build (HTML):  python3 tex2html.py canticle.tex
+%% =====================================================================
+
+\begin{document}
+
+\OrderTitle{[Canticle Title]}
+\OrderSubtitle{[a subtitle or occasion, if any]}
+
+%% ---- optional rubric, e.g. "The people may stand or sit as able." ----
+%% \Rubric{[direction]}
+
+\Act{Canticle}
+
+%% --- Hymn announcement: title, UMH page; tune name + meter optional ------
+\Hymn{[Canticle title]}{UMH [nnn]}{[Tune name]}{[Meter, e.g. LM]}
+
+%% ---- MUSIC -------------------------------------------------------------
+%% \Melody holds ABC notation.  Replace this TEST scale with the canticle's
+%% actual tune (see abcjs.example.com for a live editor; the notation can be
+%% pasted in straight from there).  Anything that isn't a renderable ABC
+%% line will be shown as source text rather than drawn — never a blank gap.
+\Melody{
+X:1
+T:[Canticle]
+M:4/4
+L:1/4
+K:C
+C D E F | G A B c | C D E F | c4 ||
+}
+
+%% ---- CALL AND RESPONSE -------------------------------------------------
+%% Any of these already work in your pipeline — pick whichever the canticle
+%% uses.  Leader (roman) / People (bold) is the most common shape.
+
+\Rubric{[Leader reads / sings a part; the people respond.] }
+\begin{Litany}
+\L{[Leader's line]}
+\P{[People's response]}
+\L{[Leader's line]}
+\P{[People's response]}
+\end{Litany}
+
+%% ---- (ALTERNATE) verse-with-refrain canticle --------------------------
+%% Use this instead of the Litany block for a through-sung canticle with a
+%% repeating refrain between verses:
+%%
+%% \begin{Psalm}{[Ref., e.g. "Nunc Dimittis, Luke 2:29-32"]}
+%% \Resp{[refrain or antiphon]}
+%% \V{[verse line]}
+%% \V{[verse line]}
+%% \Resp{[refrain or antiphon]}
+%% \V{[verse line]}
+%% \end{Psalm}
+
+\Silence
+\Amen
+
+\end{document}

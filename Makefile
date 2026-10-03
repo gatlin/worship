@@ -3,6 +3,13 @@ PROJ      = worship
 BUILD     = ./build
 DOCS      = ./docs
 
+# Pages that get HTML.  Auto-discovered: every .tex in the repo except the
+# preamble and any listed in EXCLUDE_TEX.  Add a file -> it builds automatically.
+# To keep a draft file out of the site, either rename it with a hyphen prefix
+# (e.g., "-scratch.tex") or list it here.
+EXCLUDE_TEX := worship-preamble.tex melody-test.tex abcjs-experiment.html
+PAGES       := $(filter-out $(EXCLUDE_TEX),$(wildcard *.tex))
+
 .PHONY: all clean burn timing html clean-html docs
 
 # COLORS
@@ -27,26 +34,26 @@ clean:
 html:
 	mkdir -p $(BUILD)
 	cp assets/style.css $(BUILD)/style.css
+	cp assets/abcjs-basic-min.js $(BUILD)/abcjs-basic-min.js
 	cp assets/manifest.json $(BUILD)/manifest.json
 	cp assets/sw.js $(BUILD)/sw.js
 	cp assets/icon.svg $(BUILD)/icon.svg
-	python3 tex2html.py morning.tex $(BUILD)/morning.html
-	python3 tex2html.py midday.tex $(BUILD)/midday.html
-	python3 tex2html.py evening.tex $(BUILD)/evening.html
-	python3 tex2html.py night.tex $(BUILD)/night.html
+	for p in $(PAGES); do \
+		python3 tex2html.py $$p $(BUILD)/$${p%.tex}.html; \
+	done
 
 ## Copy built HTML into docs/ for GitHub Pages deployment.
 docs: html
 	mkdir -p $(DOCS)
-	cp $(BUILD)/morning.html $(BUILD)/midday.html $(BUILD)/evening.html $(BUILD)/night.html $(DOCS)/
-	cp $(BUILD)/style.css $(BUILD)/manifest.json $(BUILD)/sw.js $(BUILD)/icon.svg $(DOCS)/
+	for p in $(PAGES); do cp $(BUILD)/$${p%.tex}.html $(DOCS)/; done
+	cp $(BUILD)/style.css $(BUILD)/abcjs-basic-min.js $(BUILD)/manifest.json $(BUILD)/sw.js $(BUILD)/icon.svg $(DOCS)/
 
 ## Remove generated HTML files.
 clean-html:
-	rm -f $(BUILD)/morning.html $(BUILD)/midday.html $(BUILD)/evening.html $(BUILD)/night.html $(BUILD)/style.css
+	rm -f $(PAGES:%.tex=$(BUILD)/%.html) $(BUILD)/style.css $(BUILD)/abcjs-basic-min.js
 	rm -f $(BUILD)/manifest.json $(BUILD)/sw.js $(BUILD)/icon.svg
-	rm -f $(DOCS)/morning.html $(DOCS)/midday.html $(DOCS)/evening.html $(DOCS)/night.html
-	rm -f $(DOCS)/style.css $(DOCS)/manifest.json $(DOCS)/sw.js $(DOCS)/icon.svg
+	rm -f $(PAGES:%.tex=$(DOCS)/%.html) $(DOCS)/style.css $(DOCS)/abcjs-basic-min.js
+	rm -f $(DOCS)/manifest.json $(DOCS)/sw.js $(DOCS)/icon.svg
 
 ## Print help message.
 help:
