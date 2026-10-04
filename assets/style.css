@@ -195,8 +195,10 @@ p {
 .melody.rendered  .melody-abc { display: none;  }
 
 .melody .abcjs {
-  overflow-x: auto;           /* keep very wide staves scrollable on narrow screens */
+  overflow-x: auto !important;           /* keep very wide staves scrollable on narrow screens */
+  overflow-y: hidden !important;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
 }
 
 .melody .abcjs svg {
