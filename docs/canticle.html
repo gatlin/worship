@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[Canticle Title]</title>
+<link rel="stylesheet" href="style.css">
+<script src="abcjs-basic-min.js"></script>
+</head>
+<body>
+<h1>[Canticle Title]</h1>
+<div class="title-rule"></div>
+<p class="subtitle">[a subtitle or occasion, if any]</p>
+
+<h2>Canticle</h2>
+
+<div class="hymn"><div class="hymn-line"><em>[Canticle title]</em><span class="ref">UMH [nnn]</span></div><div class="hymn-line"><span class="hymn-note">[Tune name]</span><span class="hymn-note">[Meter, e.g. LM]</span></div></div>
+
+
+<div class="melody">
+<pre class="melody-abc" data-out="melout_0">
+
+X:1
+T:[Canticle]
+M:4/4
+L:1/4
+K:C
+C D E F | G A B c | C D E F | c4 ||
+
+</pre>
+<div id="melout_0" class="abcjs"></div>
+</div>
+
+
+<p class="rubric">[Leader reads / sings a part; the people respond.] </p>
+<div class="litany">
+<p class="leader">[Leader's line]</p>
+<p class="people"><strong>[People's response]</strong></p>
+<p class="leader">[Leader's line]</p>
+<p class="people"><strong>[People's response]</strong></p>
+</div>
+
+<p class="silence"><em>Silence</em></p>
+<p class="people"><strong>Amen.</strong></p>
+
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+  if (typeof ABCJS === 'undefined') { return; }   // offline / not loaded: source stays visible
+  document.querySelectorAll('.melody-abc').forEach(function (src) {
+    var out = document.getElementById(src.getAttribute('data-out'));
+    if (!out) { return; }
+    try {
+      // ABC.js: `responsive: true` sets a sane intrinsic width and lets the
+      // SVG scale to its container via viewBox.  Do NOT pass `scale` (it is
+      // treated as a literal transform multiplier and will blow the staff
+      // up by N-fold) or `staffwidth` unless you specifically want to cap it.
+      ABCJS.renderAbc(out, src.textContent, {}, { responsive: true });
+      var m = src.closest('.melody');
+      if (m) { m.classList.add('rendered'); }
+    } catch (e) {
+      /* leave the readable ABC source on screen */
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

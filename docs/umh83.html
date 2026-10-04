@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[Canticle of God's Glory]</title>
+<link rel="stylesheet" href="style.css">
+<script src="abcjs-basic-min.js"></script>
+</head>
+<body>
+<h1>[Canticle of God's Glory]</h1>
+<div class="title-rule"></div>
+<p class="subtitle">[UMH 83]</p>
+
+<h2>Canticle</h2>
+
+<div class="hymn"><div class="hymn-line"><em>[Canticle of God's Glory]</em><span class="ref">UMH 83</span></div><div class="hymn-line"><span class="hymn-note">[]</span><span class="hymn-note">[]</span></div></div>
+
+
+<div class="melody">
+<pre class="melody-abc" data-out="melout_0">
+
+X:83
+T:Canticle of God&#x27;s Glory
+S:The Glory of the Triune God
+M:6/8
+L:1/8
+K:G
+|: G2 A | B2 c | d2 c | B2 A | G2 F | G4 G |
+   A2 B | c2 d | e2 d | c2 B | A2 G | A6 :|
+   w: Glo-ry to God in the high-est, and peace to God&#x27;s peo-ple on earth.
+
+</pre>
+<div id="melout_0" class="abcjs"></div>
+</div>
+
+
+<p class="rubric">[Leader reads / sings a part; the people respond.] </p>
+<div class="litany">
+<p class="leader">[Leader's line]</p>
+<p class="people"><strong>[People's response]</strong></p>
+<p class="leader">[Leader's line]</p>
+<p class="people"><strong>[People's response]</strong></p>
+</div>
+
+<p class="silence"><em>Silence</em></p>
+<p class="people"><strong>Amen.</strong></p>
+
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+  if (typeof ABCJS === 'undefined') { return; }   // offline / not loaded: source stays visible
+  document.querySelectorAll('.melody-abc').forEach(function (src) {
+    var out = document.getElementById(src.getAttribute('data-out'));
+    if (!out) { return; }
+    try {
+      // ABC.js: `responsive: true` sets a sane intrinsic width and lets the
+      // SVG scale to its container via viewBox.  Do NOT pass `scale` (it is
+      // treated as a literal transform multiplier and will blow the staff
+      // up by N-fold) or `staffwidth` unless you specifically want to cap it.
+      ABCJS.renderAbc(out, src.textContent, {}, { responsive: true });
+      var m = src.closest('.melody');
+      if (m) { m.classList.add('rendered'); }
+    } catch (e) {
+      /* leave the readable ABC source on screen */
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
